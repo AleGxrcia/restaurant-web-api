@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantApiV2.WebApi.Controllers;
 using RestaurantWebApi.Core.Application.Dtos.Tables;
@@ -8,6 +9,8 @@ using RestaurantWebApi.Core.Application.Interfaces.Services;
 namespace Restaurant.WebApi.Controllers.v1
 {
     [ApiVersion("1.0")]
+    [Authorize(Roles = $"{nameof(Roles.Admin)},{nameof(Roles.Admin)}")]
+
     public class TableController : BaseApiController
     {
         private readonly ITableService _tableService;
@@ -17,6 +20,7 @@ namespace Restaurant.WebApi.Controllers.v1
             _tableService = tableService;
         }
 
+        [Authorize(Roles = nameof(Roles.Admin))]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -39,6 +43,7 @@ namespace Restaurant.WebApi.Controllers.v1
             }
         }
 
+        [Authorize(Roles = nameof(Roles.Admin))]
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TableSaveDto))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -61,6 +66,7 @@ namespace Restaurant.WebApi.Controllers.v1
             }
         }
 
+        [Authorize(Roles = $"{nameof(Roles.Admin)},{nameof(Roles.Waiter)}")]
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TableDto))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -84,6 +90,7 @@ namespace Restaurant.WebApi.Controllers.v1
             }
         }
 
+        [Authorize(Roles = $"{nameof(Roles.Admin)},{nameof(Roles.Waiter)}")]
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TableSaveDto))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -111,6 +118,7 @@ namespace Restaurant.WebApi.Controllers.v1
             }
         }
 
+        [Authorize(Roles = nameof(Roles.Waiter))]
         [HttpGet("tableOrders/{id}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TableDto))]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
@@ -134,6 +142,7 @@ namespace Restaurant.WebApi.Controllers.v1
             }
         }
 
+        [Authorize(Roles = nameof(Roles.Waiter))]
         [HttpPatch("ChangeStatus")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]

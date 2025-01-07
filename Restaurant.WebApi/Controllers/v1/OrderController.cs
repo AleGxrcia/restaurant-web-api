@@ -1,12 +1,15 @@
 ﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RestaurantApiV2.WebApi.Controllers;
 using RestaurantWebApi.Core.Application.Dtos.Orders;
+using RestaurantWebApi.Core.Application.Enums;
 using RestaurantWebApi.Core.Application.Interfaces.Services;
 
 namespace Restaurant.WebApi.Controllers.v1
 {
     [ApiVersion("1.0")]
+    [Authorize(Roles = nameof(Roles.Waiter))]
     public class OrderController : BaseApiController
     {
         private readonly IOrderService _orderService;
