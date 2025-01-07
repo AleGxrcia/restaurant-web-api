@@ -21,7 +21,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantWebApi.Core.Appli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantWebApi.Infrastructure.Persistence", "RestaurantWebApi.Infrastructure.Persistence\RestaurantWebApi.Infrastructure.Persistence.csproj", "{A662D9BC-998E-4546-8D7E-FB95685651C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantApiWeb.Infrastructure.Identity", "RestaurantApiWeb.Infrastructure.Identity\RestaurantApiWeb.Infrastructure.Identity.csproj", "{2F1C7335-41D4-4CC0-8513-B47357446A9B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantWebApi.Infrastructure.Identity", "RestaurantApiWeb.Infrastructure.Identity\RestaurantWebApi.Infrastructure.Identity.csproj", "{2F1C7335-41D4-4CC0-8513-B47357446A9B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -17,6 +17,7 @@ namespace RestaurantWebApi.Core.Application
             services.AddTransient<IIngredientService, IngredientService>();
             services.AddTransient<ITableService, TableService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IUserService, UserService>();
             #endregion
         }
     }

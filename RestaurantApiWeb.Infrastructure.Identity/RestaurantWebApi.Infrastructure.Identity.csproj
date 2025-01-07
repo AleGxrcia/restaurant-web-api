@@ -22,4 +22,10 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantWebApi.Core.Application\RestaurantWebApi.Core.Application.csproj" />
+    <ProjectReference Include="..\RestaurantWebApi.Core.Domain\RestaurantWebApi.Core.Domain.csproj" />
+    <ProjectReference Include="..\RestaurantWebApi.Infrastructure.Persistence\RestaurantWebApi.Infrastructure.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
