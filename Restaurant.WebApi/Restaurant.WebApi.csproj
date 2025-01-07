@@ -23,4 +23,10 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RestaurantApiWeb.Infrastructure.Identity\RestaurantApiWeb.Infrastructure.Identity.csproj" />
+    <ProjectReference Include="..\RestaurantWebApi.Core.Application\RestaurantWebApi.Core.Application.csproj" />
+    <ProjectReference Include="..\RestaurantWebApi.Infrastructure.Persistence\RestaurantWebApi.Infrastructure.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>
