@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
+using RestaurantWebApi.Core.Application.Dtos.Account;
 using RestaurantWebApi.Core.Application.Dtos.Dishes;
 using RestaurantWebApi.Core.Application.Dtos.Ingredients;
 using RestaurantWebApi.Core.Application.Dtos.Orders;
 using RestaurantWebApi.Core.Application.Dtos.Tables;
+using RestaurantWebApi.Core.Application.Dtos.Users;
 using RestaurantWebApi.Core.Application.Enums;
 using RestaurantWebApi.Core.Domain.Entities;
 
@@ -90,6 +92,27 @@ namespace RestaurantWebApi.Core.Application.Mappings
             .ForMember(dest => dest.LastModifiedBy, opt => opt.Ignore());
             #endregion
 
+            #region UserProfile
+            CreateMap<AuthenticationRequest, LoginDto>()
+                .ForMember(x => x.HasError, opt => opt.Ignore())
+                .ForMember(x => x.Error, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<RegisterRequest, UserSaveDto>()
+                .ForMember(x => x.HasError, opt => opt.Ignore())
+                .ForMember(x => x.Error, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<ForgotPasswordRequest, ForgotPasswordDto>()
+                .ForMember(x => x.HasError, opt => opt.Ignore())
+                .ForMember(x => x.Error, opt => opt.Ignore())
+                .ReverseMap();
+
+            CreateMap<ResetPasswordRequest, ResetPasswordDto>()
+                .ForMember(x => x.HasError, opt => opt.Ignore())
+                .ForMember(x => x.Error, opt => opt.Ignore())
+                .ReverseMap();
+            #endregion
         }
     }
 }
